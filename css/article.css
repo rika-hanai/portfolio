@@ -1,0 +1,191 @@
+/* その場で */
+.fadeIn {
+  animation-name: fadeInAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*--------------------------------
+ 下層：Worksページ
+---------------------------------*/
+.article {
+  padding: 120px 0;
+}
+.article-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.article-title {
+  margin-bottom: 60px;
+  text-align: center;
+	font-size:24px;
+	font-family:'Zen Kaku Gothic New', sans-serif;
+}
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+.article-body__image {
+	width:100%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.article-body__text {
+  margin-bottom: 60px;
+  line-height: 1.8;
+}
+.article-text {
+  margin-bottom: 100px;
+}
+.article-text h3 {
+  position: relative;
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-left: 1em;
+}
+.article-text h3:not(:first-child) {
+  margin-top: 50px;
+}
+.article-text h3::before {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 2.5px;
+  height: 80%;
+  content: "";
+  border-radius: 3px;
+  background-color: #333;
+}
+.article-text p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 50px;
+}
+/*== 線の上を別の線が伸びる */
+
+.btnline{
+    /*線の基点とするためrelativeを指定*/
+	position:relative;
+    /*リンクの形状*/ 
+	color:#5e5e5e;
+    padding: 10px 28px 8px 8px;
+	display:inline-block;
+    text-decoration: none;
+    outline: none;
+}
+
+/*線の設定*/
+.btnline::before,.btnline::after{
+	content:'';
+    /*絶対配置で線の位置を決める*/
+	position:absolute;
+	z-index:1;
+	bottom:0;
+	left:5px;
+     /*線の形状*/   
+	background:#5e5e5e;
+	width:90%;
+	height:1px;
+    /*アニメーションの指定*/
+	transition:all 0.3s ease-in-out;
+}
+
+ /*hover時に伸びる線の形状*/   
+.btnline::after{
+	width:0;
+	background:#e2d2c1;
+}
+
+ /*hover時に100%に伸びる*/   
+.btnline:hover::after {
+	width:90%;
+}
+.article-image {
+  text-align: center;
+}
+.article-image img {
+	width:100%;
+}
+.home-link {
+  text-align: center;
+	letter-spacing: .1rem;
+}
+.linkbtn{
+    /*丸の基点とするためrelativeを指定*/
+	position: relative;
+    /*ボタンの形状*/	
+    display: inline-block;
+	padding:3px 0 3px 20px;
+	line-height: 50px;
+    text-decoration: none;
+    outline: none;
+}
+
+/* 丸が動く */
+.linkbtn::before{
+	content:'';
+    /*絶対配置で丸の位置を決める*/
+	position:absolute;
+	left:-3px;
+	z-index: -1;
+    /*丸の形状*/
+	width:52px;
+	height:52px;
+	background:#e2d2c1;
+	border-radius:60px;
+    /*アニメーションの指定*/
+    transition:.25s ease-out;
+}
+
+/*hoverした際の形状*/
+.linkbtn:hover::before{
+	width:165px;
+}
+
+/* 矢印の形状 */
+.linkbtn::after{
+	position: absolute;
+    content: '';
+    top: 1.55em;
+    right: -15px;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #5e5e5e;
+    border-right: 1px solid #5e5e5e;
+    transform: rotate(45deg);
+}
+/*media Queries 767
+----------------------------------------------------*/
+@media screen and (max-width: 767px) {
+  /* 下層ページ */
+  .article {
+    padding: 100px 0;
+  }
+	.article-title {
+		margin-bottom:36px;
+		font-size:18px;
+	}
+  .article-body__image {
+    margin-bottom: 26px;
+  }
+  .article-body__text {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .article-body h3 {
+    font-size: 16px;
+    padding-left: .8em;
+    margin-bottom: 14px;
+  }
+}
